@@ -1,0 +1,4 @@
+FROM openjdk:8
+ ADD target/BootResourceApp.jar BootResourceApp.jar 
+ EXPOSE 8086
+ ENTRYPOINT ["java", "-jar", "BootResourceApp.jar"]

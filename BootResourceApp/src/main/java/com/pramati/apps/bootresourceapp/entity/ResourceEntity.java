@@ -1,7 +1,10 @@
-package com.pramati.apps.bootresourceapp.bean;
+package com.pramati.apps.bootresourceapp.entity;
 
-public class Resource {
-	
+import javax.persistence.Entity;
+import javax.persistence.Id;
+@Entity
+public class ResourceEntity {
+	@Id
 	private int rId;
 	private String rName;
 	private String rRole;
@@ -50,6 +53,4 @@ public class Resource {
 	public String toString(){
 		return "rId:"+rId+",rName:"+rName+",rRole:"+rRole+",rSkillSet:"+rSkillSet+",rSalary:"+rSalary;
 	}
-	
-
 }

@@ -6,34 +6,31 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.pramati.apps.bootresourceapp.bean.Resource;
+import com.pramati.apps.bootresourceapp.entity.ResourceEntity;
 import com.pramati.apps.bootresourceapp.repository.ResourceRepository;
+import com.pramati.apps.bootresourceapp.service.mgr.ResourceServiceMgr;
 
 @Service
 public class ResourceService {
 	@Autowired
-	ResourceRepository resourceRepository;
+	ResourceServiceMgr resourceServiceMgr;
 	public List<Resource> getAllResources() {
-		List<Resource> Resources = new ArrayList<>();
-		resourceRepository.findAll().forEach(Resources::add);
-		return Resources;
+		return resourceServiceMgr.getAllResources();
 	}
 
 	public Resource getResource(int id) {
-		return resourceRepository.findById(id).get();
+		return resourceServiceMgr.getResource(id);
 	}
 
 	public int addResource(Resource resource) {
-		resourceRepository.save(resource);
-		return resource.getrId();
+		return resourceServiceMgr.addResource(resource);
 	}
 
-	public boolean updateResource(Resource Resource, int id) {
-		resourceRepository.save(Resource);// save can do both add and udpate
-		return true;
+	public boolean updateResource(Resource resource, int id) {
+		return resourceServiceMgr.updateResource(resource,id);
 	}
 
 	public boolean deleteResource(int id) {
-		resourceRepository.deleteById(id);
-		return true;
+		return resourceServiceMgr.deleteResource(id);
 	}
 }

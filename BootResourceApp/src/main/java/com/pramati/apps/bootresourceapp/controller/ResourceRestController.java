@@ -25,7 +25,6 @@ public class ResourceRestController {
 	@PostMapping(path = "/", consumes = "application/json")
 	public ResponseEntity<Resource> createResource(@RequestBody Resource resource) {
 		System.out.println("creating the resource:" + resource);
-		String result = resource.toString();
 		resourceService.addResource(resource);
 		return ResponseEntity.ok(resource);
 	}

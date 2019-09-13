@@ -1,0 +1,33 @@
+body{
+  // background: #0033cc none repeat scroll 0 0;
+   height:100%;
+   width:100%;
+}
+
+#header {
+    background-color:#0033cc;
+    color:white;
+    text-align:center;
+    padding:5px;
+}
+#nav {
+    line-height:30px;
+    //background-color:#eeeeee;
+     height:300px;
+    //height:100%;
+   width:300px;
+    float:left;
+    padding:5px;	      
+}
+#section {
+    width:75%;
+    float:left;
+    padding:10px;	 	 
+}
+#footer {
+    background-color:#0033cc;
+    color:white;
+    clear:both;
+    text-align:center;
+   padding:5px;	 	 
+}

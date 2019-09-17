@@ -1,0 +1,32 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: busSearchSrvc
+spec:
+  selector:
+    app: bus-search-srvc
+  ports:
+  - protocol: TCP
+    port: 8081
+    targetPort: 8099
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busSearchSrvc
+spec:
+  selector:
+      matchLabels:
+        app: bus-search-srvc
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: busSearchSrvc
+    spec:
+      containers:
+        - name: bus-search-srvc-c
+          image: gcr.io/invertible-tree-252704/bus-search-srvc-img:latest
+          ports:
+            - containerPort: 8099

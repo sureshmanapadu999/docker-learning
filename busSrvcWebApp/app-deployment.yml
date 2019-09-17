@@ -1,0 +1,32 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: busSrvcWebApp
+spec:
+  selector:
+    app: bus-app-srvc
+  ports:
+  - protocol: TCP
+    port: 8081
+    targetPort: 8086
+  type: LoadBalancer
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busSrvcWebApp
+spec:
+  selector:
+      matchLabels:
+        app: bus-app-srvc
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: busSrvcWebApp
+    spec:
+      containers:
+        - name: bus-srvc-web-app-c
+          image: gcr.io/invertible-tree-252704/bus-srvc-web-app:latest
+          ports:
+            - containerPort: 8086

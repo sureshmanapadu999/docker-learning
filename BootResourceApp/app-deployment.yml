@@ -9,8 +9,7 @@ spec:
   - protocol: TCP
     port: 8081
     targetPort: 8086
-    nodePort: 30001
-  type: NodePort
+  type: LoadBalancer
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -28,7 +27,6 @@ spec:
     spec:
       containers:
         - name: boot-resource-app-c
-          image: boot-resource-app:latest
-          imagePullPolicy: Never
+          image: gcr.io/invertible-tree-252704/boot-resource-app:latest
           ports:
             - containerPort: 8086

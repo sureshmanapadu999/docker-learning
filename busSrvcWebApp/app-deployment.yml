@@ -27,6 +27,6 @@ spec:
     spec:
       containers:
         - name: bus-srvc-web-app-c
-          image: gcr.io/invertible-tree-252704/bus-srvc-web-app:latest
+          image: gcr.io/invertible-tree-252704/bus-srvc-web-app-img:latest
           ports:
             - containerPort: 8086

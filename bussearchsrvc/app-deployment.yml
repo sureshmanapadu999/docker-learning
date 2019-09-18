@@ -1,7 +1,7 @@
 kind: Service
 apiVersion: v1
 metadata:
-  name: busSearchSrvc
+  name: bus-search-service
 spec:
   selector:
     app: bus-search-srvc
@@ -9,12 +9,12 @@ spec:
   - protocol: TCP
     port: 8081
     targetPort: 8099
-  type: LoadBalancer
+  type: ClusterIP
 ---
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: busSearchSrvc
+  name: bus-search-srvc-d
 spec:
   selector:
       matchLabels:
@@ -23,7 +23,7 @@ spec:
   template:
     metadata:
       labels:
-        app: busSearchSrvc
+        app: bus-search-srvc
     spec:
       containers:
         - name: bus-search-srvc-c

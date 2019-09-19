@@ -21,7 +21,7 @@ public class SearchController {
     @Autowired
     private Environment env;
     
-	@RequestMapping(path = "/searchsrvc", method = RequestMethod.POST)
+	@RequestMapping(path = "/searchsrvc", method = RequestMethod.GET)
 	public ModelAndView searchForBusSrvc(HttpServletRequest request) {
 		String uri = env.getProperty("uri");
 		ModelAndView modelAndView = new ModelAndView("error", "errorDetails", "somethign went wrong");

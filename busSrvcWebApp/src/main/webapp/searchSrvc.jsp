@@ -12,7 +12,7 @@ and open the template in the editor.
     </head>
     <body>
         <div>search for a bus service availablity</div>
-        <form action="./searchsrvc" method="POST">
+        <form action="./searchsrvc" method="GET">
             <label>From:</label><input type="text" name="from" /><br/><br/>  
             <label>To:</label><input type="text" name="to" /><br/><br/>
              <input type="submit" value="search"/> <br/><br/>

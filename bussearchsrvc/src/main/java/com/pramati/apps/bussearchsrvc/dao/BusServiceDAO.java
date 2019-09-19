@@ -11,7 +11,7 @@ import com.pramati.apps.bussearchsrvc.repository.BusServiceRepository;
 @Repository
 public class BusServiceDAO {
 	@Autowired
-	BusServiceRepository busServiceRepository;
+	private BusServiceRepository busServiceRepository;
 	public List<BusServiceEntity> getAllBusServices(String from,String to) {
 		return busServiceRepository.findByStartstationAndEndstation(from,to);
 	}
